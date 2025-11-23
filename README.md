@@ -1,4 +1,4 @@
-# phpDoc Generator v0.4.7
+# phpdg v0.5.0
 
 🚀 **PHP Documentation Generator** - Automatically generates beautiful HTML documentation from PHP files with DocBlock support.
 
@@ -9,8 +9,10 @@
 - ✅ Full PHPDoc comment support (@param, @return, @description)
 - ✅ Interactive tree structure navigation
 - ✅ Modern dark theme UI (VS Code inspired)
+- ✅ **NEW: Source code viewer with AJAX loading**
 - ✅ HTTP authentication with .htaccess
-- ✅ Multi-language support with language picker (6 languages)
+- ✅ Multi-language support with language picker (10 languages)
+- ✅ **NEW: RTL support for right-to-left languages**
 - ✅ Expandable/collapsible method details
 - ✅ Real-time search functionality
 - ✅ Collapsible directory tree on main page
@@ -44,29 +46,26 @@ $settings = [
         // 'admin' => 'password123',
     ],
     
-    // Language (en, sk, cs, de, ru, ja)
+    // Language (en, sk, cs, de, pl, pt, ru, uk, hi, fa)
     'language' => 'en',
     
     // Available languages in documentation
-    'available_languages' => ['en', 'sk', 'cs', 'de', 'ru', 'ja'],
+    'available_languages' => ['en', 'sk', 'cs', 'de', 'pl', 'pt', 'ru', 'uk', 'hi', 'fa'],
 ];
 ```
 
 ### 2. Generate Documentation
 
-**Method A: Direct Browser Access**
-1. Upload `generator.php` to your server (e.g., `/public_html/phpdoc/`)
-2. Open `http://your-domain.com/phpdoc/generator.php` in your browser
+**Method A: Command Line**
+```bash
+php generator.php
+```
+
+**Method B: Browser Access**
+1. Upload `generator.php` to your web server
+2. Open it in your browser
 3. Documentation will be generated automatically in the `output/` subdirectory
-4. View the result at `http://your-domain.com/phpdoc/output/index.html`
-
-**Method B: Using Configuration Interface** *(Coming soon - in development)*
-1. Use the web-based configuration tool
-2. Fill in your project settings
-3. Download pre-configured `generator.php`
-4. Upload to your server and open in browser (Method A)
-
-> **Note:** The web-based configuration interface is currently being prepared and will be available in the near future.
+4. View the result at `output/index.html`
 
 ### 3. View Documentation
 
@@ -74,8 +73,8 @@ Open `output/index.html` in your web browser.
 
 ## 🌐 Live Demo
 
-- **Generator:** https://phpdoc.kukis.sk/demo/generator.php
-- **Documentation:** https://phpdoc.kukis.sk/demo/output/
+- **Generator:** https://phpdg.com/demo/generator.php
+- **Documentation:** https://phpdg.com/demo/output/
 
 ## 📖 Usage Example
 
@@ -104,12 +103,12 @@ class UserAuth {
 
 Beautiful HTML documentation with:
 - Class overview
-- Method signatures
+- Method signatures with source code viewer
 - Parameter descriptions
 - Return types
 - Searchable interface
 
-## 🔒 HTTP Authentication
+## 🔐 HTTP Authentication
 
 To enable password protection:
 ```php
@@ -123,22 +122,43 @@ The generator will automatically create `.htaccess` and `.htpasswd` files.
 
 ## 🌍 Supported Languages
 
-The documentation interface supports 6 languages with a built-in language picker:
+The documentation interface supports 10 languages with a built-in language picker:
 
 - 🇬🇧 **English (en)** - default
 - 🇸🇰 **Slovak (sk)** - Slovenčina
 - 🇨🇿 **Czech (cs)** - Čeština
 - 🇩🇪 **German (de)** - Deutsch
+- 🇵🇱 **Polish (pl)** - Polski
+- 🇵🇹 **Portuguese (pt)** - Português
 - 🇷🇺 **Russian (ru)** - Русский
-- 🇯🇵 **Japanese (ja)** - 日本語
+- 🇺🇦 **Ukrainian (uk)** - Українська
+- 🇮🇳 **Hindi (hi)** - हिन्दी
+- 🇮🇷 **Persian (fa)** - فارسی (RTL support)
 
 Change default language in settings: `'language' => 'en'`
 
 Users can switch languages directly in the documentation interface using the language picker (saves preference to localStorage).
 
+## ✨ What's New in v0.5.0
+
+### Source Code Viewer
+- Click "View Source" button to see the implementation of any method
+- AJAX-powered modal window for smooth experience
+- Shows exact line numbers from the original file
+
+### Expanded Language Support
+- Increased from 6 to 10 languages
+- Added: Polish, Portuguese, Ukrainian, Hindi, Persian
+- Full RTL (right-to-left) support for Persian
+
+### Other Improvements
+- Rebranding from phpDoc to phpdg
+- Improved modal UI components
+- Better handling of large codebases
+
 ## 📁 Project Structure
 ```
-phpDoc/
+phpdg/
 ├── generator.php          # Main generator script
 └── output/               # Generated documentation
     ├── index.html       # Main index
@@ -161,5 +181,6 @@ Found a bug or have a feature request? Feel free to open an issue or submit a pu
 
 ---
 
-**Version:** 0.4.7  
-**Last Updated:** October 2025
+**Version:** 0.5.0  
+**Last Updated:** January 2024  
+**Previous Version:** 0.4.7
